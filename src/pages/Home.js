@@ -22,6 +22,7 @@ export default function Home(props) {
             </div>
           );
         })}
+        <button>add Card</button>
       </div>
       <div className="leaderBoard">
         <Link to="/home/leaderBoard">

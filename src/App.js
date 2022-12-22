@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Home from "./pages/Home";
 import Intro from "./pages/Intro";
 import Cards from "./pages/Cards";
@@ -60,16 +60,30 @@ function App() {
       ],
     },
   ];
+  const [run, setRun] = useState(true);
   const Links = useRef(links);
-  console.log(Links.current);
+  const images = useRef([]);
+  if (run) {
+    for (let i = 0; i < Links.current.length; i++) {
+      images.current.push({
+        img: Links.current[i].img,
+        name: Links.current[i].name,
+      });
+    }
+    setRun((prev) => (prev = false));
+  }
+  console.log(images.current);
   return (
     <div className="app">
       <Routes>
         <Route path="/" index element={<Intro />} />
         <Route path="/home">
-          <Route index element={<Home img={Links.current} />}></Route>
+          <Route index element={<Home img={images.current} />}></Route>
           <Route path="/home/:id" element={<Cards content={Links.current} />} />
-          <Route path="/home/leaderBoard" element={<LeaderBoard />} />
+          <Route
+            path="/home/leaderBoard"
+            element={<LeaderBoard images={images.current} />}
+          />
         </Route>
       </Routes>
     </div>
