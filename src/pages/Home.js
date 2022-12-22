@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Home(props) {
-  const links = props.img[0];
+  const links = props.img;
   return (
     <div className="home">
       <div className="homeContainer">
@@ -10,11 +10,14 @@ export default function Home(props) {
           return (
             <div key={index}>
               <Link to={`/home/${index}`}>
-                <img
-                  src={link.img}
-                  alt={`waldo${index}`}
-                  className="homeImage"
-                />
+                <div>
+                  <img
+                    src={link.img}
+                    alt={`waldo${index}`}
+                    className="homeImage"
+                  />
+                  <h2 className="homeText">{link.name}</h2>
+                </div>
               </Link>
             </div>
           );

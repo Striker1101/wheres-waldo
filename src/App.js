@@ -1,9 +1,12 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Home from "./pages/Home";
 import Intro from "./pages/Intro";
 import Cards from "./pages/Cards";
-import img1 from "./media/weldo1.jpg";
+import ps3 from "./media/weldo1.jpg";
+import ps4 from "./media/ps4.jpg";
+import x360 from "./media/x360.jpg";
+import tor from "./media/tortoise.jfif";
 import LeaderBoard from "./pages/LeaderBoard";
 import { Route, Routes } from "react-router-dom";
 // Import the functions you need from the SDKs you need
@@ -28,25 +31,44 @@ function App() {
   const links = [
     {
       id: 0,
-      img: img1,
+      name: "sega",
+      img: ps3,
+      charc: [
+        { img: tor, cord: [297, 298], name: "tortoise" },
+        { img: "", cord: [611, 581, 582], name: "" },
+        { img: "", cord: [760, 730], name: "" },
+      ],
     },
     {
       id: 1,
-      img: "",
+      name: "X360",
+      img: x360,
+      charc: [
+        { img: tor, cord: [297, 298], name: "tortoise" },
+        { img: "", cord: [611, 581, 582], name: "" },
+        { img: "", cord: [760, 730], name: "" },
+      ],
     },
     {
       id: 2,
-      img: "",
+      name: "ps4",
+      img: ps4,
+      charc: [
+        { img: tor, cord: [297, 298], name: "tortoise" },
+        { img: "", cord: [611, 581, 582], name: "" },
+        { img: "", cord: [760, 730], name: "" },
+      ],
     },
   ];
-  const imgLinks = useState(links);
+  const Links = useRef(links);
+  console.log(Links.current);
   return (
     <div className="app">
       <Routes>
         <Route path="/" index element={<Intro />} />
         <Route path="/home">
-          <Route index element={<Home img={imgLinks} />}></Route>
-          <Route path="/home/:id" element={<Cards content={imgLinks} />} />
+          <Route index element={<Home img={Links.current} />}></Route>
+          <Route path="/home/:id" element={<Cards content={Links.current} />} />
           <Route path="/home/leaderBoard" element={<LeaderBoard />} />
         </Route>
       </Routes>

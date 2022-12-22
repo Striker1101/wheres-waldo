@@ -65,6 +65,7 @@ code {
   position: relative;
   gap: 10px;
   top: 10vh;
+  
 }
 .homeImage{
   width: 30vh;
@@ -72,12 +73,17 @@ code {
   border-radius: 20px;
   overflow: hidden;
 }
+.homeText{
+  text-align: center;
+  color:azure;
+}
 .cardContainer{
   background-color: aqua;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
+  
 }
 a{
   text-decoration-line:none;
@@ -87,7 +93,16 @@ a{
   color: wheat;
 }
 .cardCharacters{
-  height: 10vh;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: space-evenly;
+
+}
+.cardCharac{
+  display: flex;
+  gap: 10px;
 }
 .cardButton{
   display: flex;
@@ -99,10 +114,82 @@ a{
   height: 30px;
   border-radius: 50px;
 }
+.cords{
+  width: 23px;
+  height: 45px;
+}
 .card{
+  margin: 0;
+  padding: 0;
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
 }
-.click{
-  border: 1px solid red;
+.btnCard{
+  height:50px;
+}
+.btnCont{
+  border: 3px solid red;
+  border-radius: 50px;
+  overflow: hidden;
+  width: 50px;
+  height: 50px;
+}
+.btnCont:hover{
+  width: 80px;
+  height: 80px;
+}
+.charButton{
+  width: fit-content;
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+  display: flex;
+  flex-direction: column;
+
+}
+.reply{
+  height: 50px;
+  width: 400px;
+  top: 100px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background-color: bisque;
+  
+}
+.winner{
+  position: absolute;
+  top: 50px;
+  width: 650px;
+  height: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(88, 82, 82,0.6);
+}
+.winnerForm{
+  background-color: antiquewhite;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+
+@media (max-width: 487px) {
+  .cardContainer{
+    width: 600px;
+  }
 }
