@@ -14,6 +14,7 @@ export default function Choices({
     top: `${y}px`,
     left: `${x}px`,
   };
+
   function pick(i) {
     let arr = char[i].cord;
     const cords = parseInt(cord);
@@ -49,21 +50,21 @@ export default function Choices({
             pick(0);
           }}
         >
-          first
+          {char[0].name}
         </button>
         <button
           onClick={() => {
             pick(1);
           }}
         >
-          second
+          {char[1].name}
         </button>
         <button
           onClick={() => {
             pick(2);
           }}
         >
-          third
+          {char[2].name}
         </button>
       </div>
     </div>

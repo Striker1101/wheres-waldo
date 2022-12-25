@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import Choices from "../components/Choices";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useStopwatch } from "react-timer-hook";
+import Winner from "../components/Winner";
 export default function Cards(props) {
   const { id } = useParams();
   const content = props.content;
@@ -15,7 +17,11 @@ export default function Cards(props) {
   const [toggle, setToggle] = useState(false);
   const [reply, setReply] = useState(false);
   const [picker, setPicker] = useState([false, false, false]);
-  console.log(picker);
+  const time = useRef("");
+  const { seconds, minutes, hours, days, pause } = useStopwatch({
+    autoStart: true,
+  });
+  time.current = hours + ":" + minutes + ":" + seconds;
   let result = picker.every((i) => {
     return i === true;
   });
@@ -31,10 +37,12 @@ export default function Cards(props) {
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
   };
+
   function clicked(e) {
     setX((prev) => (prev = e.nativeEvent.pageX));
     setY((prev) => (prev = e.nativeEvent.pageY));
     let target = e.target.getAttribute("data-index");
+
     setCord((prev) => (prev = target));
     setToggle((prev) => !prev);
     setTimeout(() => {
@@ -51,28 +59,19 @@ export default function Cards(props) {
           {char.map((item, i) => {
             return (
               <button className="btnCont" key={i}>
-                <img className="btnCard" src={item.img} alt="charac" />
+                <img
+                  className="btnCard"
+                  src={item.img}
+                  alt="charac"
+                  title={item.name}
+                />
               </button>
             );
           })}
         </div>
-        <div className="cardButton">
-          <button
-            onClick={() => {
-              //zoom
-            }}
-            className="cardclick inc"
-          >
-            +
-          </button>
-          <button
-            onClick={() => {
-              //zoom out
-            }}
-            className="cardclick dec"
-          >
-            -
-          </button>
+        <div className="timer" style={{ fontSize: "40px" }}>
+          <span>{days}</span>:<span>{hours}</span>:<span>{minutes}</span>:
+          <span>{seconds}</span>
         </div>
       </div>
       <div>
@@ -97,22 +96,7 @@ export default function Cards(props) {
           <h3>""</h3>
         </div>
 
-        {result && (
-          <div className="winner">
-            <div>
-              <h1>you won the game</h1>
-              <form className="winnerForm">
-                <label htmlFor="name"> Input your name</label>
-                <br />
-                <input type="text" />
-                <br />
-                <Link to="/home/leaderBoard">
-                  <input type="submit" />
-                </Link>
-              </form>
-            </div>
-          </div>
-        )}
+        {true && <Winner index={id} pause={pause} time={time.current} />}
       </div>
     </div>
   );
