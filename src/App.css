@@ -72,6 +72,11 @@ code {
   border-radius: 20px;
   overflow: hidden;
 }
+.homeImage:hover{
+  width: 32vh;
+  height: 52vh;
+
+}
 .homeText{
   text-align: center;
   color:azure;

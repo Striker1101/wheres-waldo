@@ -96,7 +96,7 @@ export default function Cards(props) {
           <h3>""</h3>
         </div>
 
-        {true && <Winner index={id} pause={pause} time={time.current} />}
+        {result && <Winner index={id} pause={pause} time={time.current} />}
       </div>
     </div>
   );
