@@ -11,9 +11,16 @@ export default function LeaderBoard({ images }) {
     const docRef = doc(db, "leaderBoard", board);
     const docSnap = await getDoc(docRef);
     const take = docSnap.data().data;
-    setBoard(take);
+    setBoard(sorter(take));
   }
 
+  function sorter(arr) {
+    arr.map((x) => {
+      return (x.time = x.time.split(":").join(""));
+    });
+
+    return arr.sort((a, b) => a.time - b.time);
+  }
   useEffect(() => {
     let checker = true;
     if (checker) {
@@ -63,18 +70,18 @@ export default function LeaderBoard({ images }) {
       <div className="score">
         <h1 style={{ color: "white" }}>LeaderBoard</h1>
         {board && (
-          <div className="content">
+          <ul className="content">
             {board.map((item, index) => {
               const spit = item.date.toDate().toString();
               return (
-                <div className="boardItems" key={index}>
+                <li className="boardItems" key={index}>
                   <span className="boardItem">{item.name}</span>
                   <span className="boardItem">{item.time}</span>
                   <span>{spit}</span>
-                </div>
+                </li>
               );
             })}
-          </div>
+          </ul>
         )}
       </div>
     </div>

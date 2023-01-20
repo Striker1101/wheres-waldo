@@ -13,7 +13,6 @@ export default function Winner({ index, pause, time }) {
   const navigate = useNavigate();
   const board = ["board0", "board1", "board2"];
   function winner() {
-    console.log(board[index]);
     updateWinner(board[index], value, time);
     if (value !== undefined) {
       navigate("/home/leaderBoard");

@@ -34,7 +34,6 @@ export default function Choices({
       setPicker((prev) => (prev = picker));
     } else {
       const reply = document.querySelector(".reply").firstChild;
-      console.log(reply);
       reply.textContent = "Wrong try again";
       setReply((prev) => !prev);
       setTimeout(() => {

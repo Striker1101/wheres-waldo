@@ -5,13 +5,9 @@ import Intro from "./pages/Intro";
 import Cards from "./pages/Cards";
 import LeaderBoard from "./pages/LeaderBoard";
 import { Route, Routes } from "react-router-dom";
-import { fireBaseApp, addBoard } from "./components/firebase";
-import { mountData } from "./components/firebaseStorage";
-import {
-  getFirestore,
-  collection,
-  getDocs,
-} from "firebase/firestore";
+import { fireBaseApp } from "./components/firebase";
+
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 function App() {
   const [Links, setLinks] = useState(null);
   async function getData() {
@@ -37,7 +33,7 @@ function App() {
       checker = false;
     };
   }, []);
-
+  
   const [run, setRun] = useState(true);
   const images = useRef([]);
   if (Links) {
