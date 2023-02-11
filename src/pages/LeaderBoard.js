@@ -69,20 +69,31 @@ export default function LeaderBoard({ images }) {
       </div>
       <div className="score">
         <h1 style={{ color: "white" }}>LeaderBoard</h1>
-        {board && (
-          <ul className="content">
-            {board.map((item, index) => {
-              const spit = item.date.toDate().toString();
-              return (
-                <li className="boardItems" key={index}>
-                  <span className="boardItem">{item.name}</span>
-                  <span className="boardItem">{item.time}</span>
-                  <span>{spit}</span>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Time</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody className="content">
+            {board && (
+              <>
+                {board.map((item, index) => {
+                  const spit = item.date.toDate().toString();
+                  return (
+                    <tr>
+                      <td>{item.name} </td>
+                      <td> {item.time}</td>
+                      <td> {spit}</td>
+                    </tr>
+                  );
+                })}
+              </>
+            )}
+          </tbody>
+        </table>
       </div>
     </div>
   );

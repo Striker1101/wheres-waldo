@@ -11,20 +11,16 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 function App() {
   const [Links, setLinks] = useState(null);
   async function getData() {
-    const db = getFirestore(fireBaseApp);
+    const db = getFirestore(fireBaseApp());
     const querySnapshot = await getDocs(collection(db, "links"));
     querySnapshot.forEach((doc) => {
       let take = doc.data();
-      setLinks((prev) => (prev = take.lists));
+      setLinks( take.lists);
     });
   }
-
+ 
   useEffect(() => {
     let checker = true;
-    /***to update data
-     *  mountData()
-     *
-     */
 
     if (checker) {
       getData();
