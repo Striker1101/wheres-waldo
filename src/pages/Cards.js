@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Choices from "../components/Choices";
 import { useParams } from "react-router-dom";
 import { useStopwatch } from "react-timer-hook";
+import Data from "./Data";
 import Winner from "../components/Winner";
 export default function Cards(props) {
   const { id } = useParams();
@@ -11,6 +12,7 @@ export default function Cards(props) {
   const width = useRef(650);
   const height = useRef(1000);
   const char = item.charc;
+  const slides = Data[id];
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
   const [cord, setCord] = useState(0);
@@ -56,7 +58,7 @@ export default function Cards(props) {
     <div className="cardContainer">
       <div className="cardCharacters">
         <div className="cardCharac">
-          {char.map((item, i) => {
+          {slides.map((item, i) => {
             return (
               <button className="btnCont" key={i}>
                 <img

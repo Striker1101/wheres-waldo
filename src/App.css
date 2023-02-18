@@ -222,12 +222,11 @@ a {
     opacity: 1;
   }
 }
-
 @media (max-width: 600px) {
   .cardContainer {
     width: 600px;
   }
   #root {
-    height: 150vh;
+    height: 200vh;
   }
 }

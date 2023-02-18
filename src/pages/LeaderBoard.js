@@ -67,7 +67,16 @@ export default function LeaderBoard({ images }) {
           );
         })}
       </div>
-      <div className="score">
+      <div
+        className="score"
+        style={{
+          display: "flex",
+          width: "100%",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <h1 style={{ color: "white" }}>LeaderBoard</h1>
         <table>
           <thead>
