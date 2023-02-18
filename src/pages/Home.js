@@ -5,6 +5,11 @@ export default function Home(props) {
   const links = props.img;
   return (
     <div className="home">
+      <div className="leaderBoard">
+        <Link to="/home/leaderBoard">
+          <h2 className="link">LeaderBoard</h2>
+        </Link>
+      </div>
       <div className="homeContainer">
         {links.map((link, index) => {
           return (
@@ -33,11 +38,6 @@ export default function Home(props) {
         >
           add Card
         </button>
-      </div>
-      <div className="leaderBoard">
-        <Link to="/home/leaderBoard">
-          <h2 className="link">LeaderBoard</h2>
-        </Link>
       </div>
     </div>
   );
