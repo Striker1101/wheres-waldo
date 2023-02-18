@@ -7,6 +7,9 @@ import wolf from "../media/werewolf.jfif";
 import war from "../media/god_of_war.jfif";
 import spider from "../media/spider_man.jfif";
 import scare from "../media/cowboy_roland.jfif";
+import ps1 from "../media/weldo1.jpg";
+import ps4 from "../media/ps4.jpg";
+import x360 from "../media/x360.jpg";
 const Data = [
   [
     {
@@ -53,3 +56,19 @@ const Data = [
 ];
 
 export default Data;
+
+export const images = [
+  {
+    img: ps1,
+    name: "PS1",
+  },
+
+  {
+    img: x360,
+    name: "X360",
+  },
+  {
+    img: ps4,
+    name: "PS4",
+  },
+];

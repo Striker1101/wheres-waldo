@@ -30,27 +30,18 @@ function App() {
     };
   }, []);
   
-  const [run, setRun] = useState(true);
-  const images = useRef([]);
-  if (Links) {
-    if (run) {
-      images.current = Links.map((el) => {
-        return { img: el.img, name: el.name };
-      });
-      setRun((prev) => (prev = false));
-    }
-  }
+
   return (
     <div className="app">
       {Links ? (
         <Routes>
           <Route path="/" index element={<Intro />} />
           <Route path="/home">
-            <Route index element={<Home img={images.current} />}></Route>
+            <Route index element={<Home/>}></Route>
             <Route path="/home/:id" element={<Cards content={Links} />} />
             <Route
               path="/home/leaderBoard"
-              element={<LeaderBoard images={images.current} />}
+              element={<LeaderBoard  />}
             />
           </Route>
         </Routes>

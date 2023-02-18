@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-export default function Home(props) {
-  const links = props.img;
+import {images} from './Data'
+export default function Home() {
   return (
     <div className="home">
       <div className="leaderBoard">
@@ -11,7 +10,7 @@ export default function Home(props) {
         </Link>
       </div>
       <div className="homeContainer">
-        {links.map((link, index) => {
+        {images.map((link, index) => {
           return (
             <div key={index}>
               <Link to={`/home/${index}`}>

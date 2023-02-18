@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { fireBaseApp } from "../components/firebase";
-
-export default function LeaderBoard({ images }) {
+import { images } from "./Data";
+export default function LeaderBoard() {
   //full array
 
   const [board, setBoard] = useState([]);
@@ -78,7 +78,7 @@ export default function LeaderBoard({ images }) {
         }}
       >
         <h1 style={{ color: "white" }}>LeaderBoard</h1>
-        <table>
+        <table >
           <thead>
             <tr>
               <th>Name</th>

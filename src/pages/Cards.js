@@ -2,13 +2,13 @@ import React, { useRef, useState } from "react";
 import Choices from "../components/Choices";
 import { useParams } from "react-router-dom";
 import { useStopwatch } from "react-timer-hook";
-import Data from "./Data";
+import Data, { images } from "./Data";
 import Winner from "../components/Winner";
 export default function Cards(props) {
   const { id } = useParams();
   const content = props.content;
   const item = content[id];
-  const image = item.img;
+  const image = images[id];
   const width = useRef(650);
   const height = useRef(1000);
   const char = item.charc;
@@ -34,7 +34,7 @@ export default function Cards(props) {
     width: `${width.current}px`,
     height: `${height.current}px`,
     cursor: "crosshair",
-    backgroundImage: `url(${image})`,
+    backgroundImage: `url(${image.img})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
