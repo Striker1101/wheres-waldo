@@ -19,9 +19,10 @@ code {
 
 #root {
   background-image: url(./media/background.jpg);
-  background-size: cover;
+  background-size: auto;
   height: 100vh;
-  width: 100vw;
+  width: auto;
+  background-position: center;
 }
 
 .intro {
@@ -56,7 +57,7 @@ code {
 }
 .homeContainer {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -222,8 +223,11 @@ a {
   }
 }
 
-@media (max-width: 487px) {
+@media (max-width: 600px) {
   .cardContainer {
     width: 600px;
+  }
+  #root {
+    height: 150vh;
   }
 }

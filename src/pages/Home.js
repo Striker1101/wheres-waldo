@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 export default function Home(props) {
   const links = props.img;
-  console.log(links);
   return (
     <div className="home">
       <div className="homeContainer">
@@ -14,7 +13,7 @@ export default function Home(props) {
                 <div>
                   <img
                     src={link.img}
-                    alt={`waldo${index}`}
+                    alt={`waldo ${index}`}
                     className="homeImage"
                   />
                   <h2 className="homeText">{link.name}</h2>
@@ -23,7 +22,17 @@ export default function Home(props) {
             </div>
           );
         })}
-        <button>add Card</button>
+        <button
+          style={{
+            backgroundColor: "blue",
+            width: "100px",
+            height: "30px",
+            borderRadius: "20px",
+            border: "transparent",
+          }}
+        >
+          add Card
+        </button>
       </div>
       <div className="leaderBoard">
         <Link to="/home/leaderBoard">
