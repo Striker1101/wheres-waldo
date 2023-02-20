@@ -51,12 +51,28 @@ code {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 10px;
+  margin: 10px 0;
+}
+.btn {
+  background-color: blue;
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  border: transparent;
+  margin-top: 20px;
+  transition: transform ease-in;
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(0.9);
+  box-shadow: 2px 5x 5px 1px black;
 }
 .leaderBoard {
   text-align: center;
   border-radius: 10px 5%;
   background-color: brown;
+  color: darkgray;
 }
 .homeContainer {
   margin-top: 10px;
@@ -79,7 +95,7 @@ code {
 }
 .homeText {
   text-align: center;
-  color: azure;
+  color: darkblue;
 }
 .cardContainer {
   background-color: aqua;
@@ -184,15 +200,17 @@ a {
 .leaderBoardContainer {
   position: relative;
   top: 15vh;
+  width: 100vw;
   text-align: center;
 }
 .leaderBoardImages {
+  margin: 0 2px;
+  width: 100%;
   display: flex;
-  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  position: relative;
   gap: 10px;
+  overflow-x: scroll;
 }
 .boardItems {
   color: azure;

@@ -77,8 +77,8 @@ export default function LeaderBoard() {
           justifyContent: "center",
         }}
       >
-        <h1 style={{ color: "white" }}>LeaderBoard</h1>
-        <table >
+        <h1 style={{ color: "darkblue" }}>LeaderBoard</h1>
+        <table style={{ marginBottom: "10px" }}>
           <thead>
             <tr>
               <th>Name</th>

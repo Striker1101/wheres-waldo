@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {images} from './Data'
+import { images } from "./Data";
 export default function Home() {
   return (
     <div className="home">
@@ -26,18 +26,12 @@ export default function Home() {
             </div>
           );
         })}
-        <button
-          style={{
-            backgroundColor: "blue",
-            width: "100px",
-            height: "30px",
-            borderRadius: "20px",
-            border: "transparent",
-          }}
-        >
-          add Card
-        </button>
       </div>
+      <button
+      className="btn"
+      >
+        add Card
+      </button>
     </div>
   );
 }
