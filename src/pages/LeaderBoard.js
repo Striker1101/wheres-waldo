@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { fireBaseApp } from "../components/firebase";
 import { images } from "./Data";
+import { useNavigate } from "react-router-dom";
 export default function LeaderBoard() {
   //full array
-
+  const navigate = useNavigate();
   const [board, setBoard] = useState([]);
   async function getData(board) {
     const db = getFirestore(fireBaseApp);
@@ -51,6 +52,15 @@ export default function LeaderBoard() {
 
   return (
     <div className="leaderBoardContainer">
+      <button
+        className="btn"
+        onClick={() => {
+          navigate("/home");
+        }}
+        style={{ float: "left", marginLeft: "20px", marginBottom: "10px" }}
+      >
+        Back to Home
+      </button>
       <div className="leaderBoardImages">
         {images.map((link, index) => {
           return (
